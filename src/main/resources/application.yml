@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: feign-customer
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://server1:11111/eureka
+  instance:
+    hostname: feign-customer-9001
+server:
+  port: 9001
+HELLO-PROVIDER:
+  ribbon:
+    ReadTimeout: 10
+    MaxAutoRetiresNextServer: 2
+    MaxAutoRetries: 1
+logger:
+  level:
+    com.springcloud.feigncustomer.service:
+      HELLO-PROVIDER: DEBUG
